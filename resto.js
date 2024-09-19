@@ -29,7 +29,7 @@ async function submitForm(event) {
 
     try {
         // Envoie les données à l'API
-        const response = await fetch('https://votre-api.com/reservations', {
+        const response = await fetch('', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

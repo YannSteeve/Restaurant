@@ -29,7 +29,7 @@ async function submitForm(event) {
 
     try {
         // Envoie les données à l'API
-        const response = await fetch('', {
+        const response = await fetch('mysql-prince-junior.alwaysdata.net/api/reservations', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="script.js"></script>
+    <script src="restau.js"></script>
+</head>
+<body class="flex items-center font-serif bg-[url('\plats.jpeg')] bg-cover  ">
+
+    <div class="border-2 border-black w-[400px] h-[500px] flex flex-col gap-[8px] px-[20px] mx-[500px] my-[50px] rounded-[8px] bg-[url('\plats.jpeg')] backdrop-blur-md  " >
+
+        <h1 class="text-center mt-[20px] text-[2rem] font-bold text-white font-serif uppercase">
+            Réservation
+        </h1>
+
+        <form action="" method="post" id="formRestau"  class="flex flex-col gap-[16px] mt-[50px]" onsubmit="submitForm(event)" >
+
+            <input type="text" name="" id="" placeholder="Nom" class="border border-black w-full px-[10px] text-white bg-transparent">
+
+            <input type="tel" name="" id="" placeholder="Numero de téléphone" class="border border-black w-full px-[10px] text-black bg-transparent">
+
+            <input type="email" name="" id="" placeholder="Email" class="border border-black w-full px-[10px] text-black bg-transparent">
+
+            <input type="date" name="" id=""placeholder="date" class="border border-black w-full px-[10px] text-black bg-transparent">
+
+            <input type="time" name="" id=""placeholder="time" class="border border-black w-full px-[10px] text-black bg-transparent">
+
+            <input type="number" name="" id="" placeholder="Nombre de personnes" class="border border-black w-full px-[10px] text-black bg-transparent">
+            
+            <input type="button" value="Envoyer" class="border border-black w-[100px] my-[20px] mx-[120px] px-[10px] font-bold rounded-[4px]  bg-green-700 hover:bg-green-400 animate-bounce outline outline-offset-2 outline-2">
+        </form>
+    </div>
+  
+</body>
+</html>

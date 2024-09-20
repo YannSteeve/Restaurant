@@ -7,31 +7,26 @@
     <script src="script.js"></script>
     <script src="resto.js"></script>
 </head>
-<body class="flex items-center font-serif bg-[url('\plats.jpeg')] bg-cover  ">
+<body class="flex items-center font-serif bg-[url('\plats.jpeg')] bg-cover"></body>
 
-    <div class="border-2 border-black w-[400px] h-[500px] flex flex-col gap-[8px] px-[20px] mx-[500px] my-[50px] rounded-[8px] bg-[url('\plats.jpeg')] backdrop-blur-md  " >
+    <div class="border-2 border-black w-[400px] h-[500px] flex flex-col gap-[8px] px-[20px] mx-[500px] my-[50px] rounded-[8px] bg-[url('\plats.jpeg')] backdrop-blur-md">
 
         <h1 class="text-center mt-[20px] text-[2rem] font-bold text-white font-serif uppercase">
             Réservation
         </h1>
 
-        <form action="https://api-form-gj21.onrender.com/api/reservations" method="post" id="formRestau"  class="flex flex-col gap-[16px] mt-[50px]" onsubmit="submitForm(event)" >
+        <form id="formRestau" class="flex flex-col gap-[16px] mt-[50px]" onsubmit="submitForm(event)">
 
-            <input type="text" name="Nom" id="" placeholder="Nom" class="border border-black w-full px-[10px] text-white bg-transparent">
+            <input type="text" name="nom" placeholder="Nom" class="border border-black w-full px-[10px] text-white bg-transparent">
+            <input type="tel" name="telephone" placeholder="Numero de téléphone" class="border border-black w-full px-[10px] text-white bg-transparent">
+            <input type="email" name="email" placeholder="Email" class="border border-black w-full px-[10px] text-white bg-transparent">
+            <input type="date" name="date" placeholder="Date" class="border border-black w-full px-[10px] text-white bg-transparent">
+            <input type="time" name="time" placeholder="Heure" class="border border-black w-full px-[10px] text-white bg-transparent">
+            <input type="number" name="nombrePersonnes" placeholder="Nombre de personnes" class="border border-black w-full px-[10px] text-white bg-transparent">
 
-            <input type="tel" name="telephone" id="" placeholder="Numero de téléphone" class="border border-black w-full px-[10px] text-white bg-transparent">
-
-            <input type="email" name="email" id="" placeholder="Email" class="border border-black w-full px-[10px] text-white bg-transparent">
-
-            <input type="date" name="date" id=""placeholder="date" class="border border-black w-full px-[10px] text-white bg-transparent">
-
-            <input type="time" name="time" id=""placeholder="time" class="border border-black w-full px-[10px] text-white bg-transparent">
-
-            <input type="number" name="nombrePresonnes" id="" placeholder="Nombre de personnes" class="border border-black w-full px-[10px] text-white bg-transparent">
-            
-            <input type="submit" value="Envoyer" class="border border-black w-[100px] my-[20px] mx-[120px] px-[10px] font-bold rounded-[4px]  bg-green-700 hover:bg-green-400 animate-bounce outline outline-offset-2 outline-2">
+            <input type="submit" value="Envoyer" class="border border-black w-[100px] my-[20px] mx-[120px] px-[10px] font-bold rounded-[4px] bg-green-700 hover:bg-green-400 animate-bounce outline outline-offset-2 outline-2">
         </form>
     </div>
-  
+
 </body>
 </html>

@@ -1,51 +1,34 @@
-// Fonction pour gérer la soumission du formulaire
 async function submitForm(event) {
-    // Empêche le rechargement de la page
     event.preventDefault();
 
-    // Récupère les valeurs des champs du formulaire
     const nom = document.querySelector('input[placeholder="Nom"]').value;
     const telephone = document.querySelector('input[placeholder="Numero de téléphone"]').value;
     const email = document.querySelector('input[placeholder="Email"]').value;
     const date = document.querySelector('input[placeholder="date"]').value;
-    const time = document.querySelector('input[placeholder="time"]').value;
+    const time = document.querySelector('input[placeholder="Heure"]').value;
     const nombrePersonnes = document.querySelector('input[placeholder="Nombre de personnes"]').value;
 
-    // Valide les champs
     if (!nom || !telephone || !email || !date || !time || !nombrePersonnes) {
         alert("Veuillez remplir tous les champs !");
         return;
     }
 
-    // Crée un objet avec les données à envoyer
-    const reservationData = {
-        nom,
-        telephone,
-        email,
-        date,
-        time,
-        nombrePersonnes
-    };
+    const reservationData = { nom, telephone, email, date, time, nombrePersonnes };
 
     try {
-        
         const response = await fetch('https://api-form-gj21.onrender.com/api/reservations', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(reservationData)
         });
 
-        
         if (!response.ok) {
-            throw new Error('Erreur lors de la soumission de la réservation');
+            const errorData = await response.json();
+            throw new Error(errorData.message || 'Erreur lors de la soumission de la réservation');
         }
 
         const responseData = await response.json();
         console.log('Réservation réussie:', responseData);
-
-        
         document.getElementById("formRestau").reset();
         alert("Réservation réussie !");
         

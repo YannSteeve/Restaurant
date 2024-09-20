@@ -4,10 +4,11 @@ async function submitForm(event) {
     const nom = document.querySelector('input[placeholder="Nom"]').value;
     const telephone = document.querySelector('input[placeholder="Numero de téléphone"]').value;
     const email = document.querySelector('input[placeholder="Email"]').value;
-    const date = document.querySelector('input[placeholder="date"]').value;
+    const date = document.querySelector('input[placeholder="Date"]').value;
     const time = document.querySelector('input[placeholder="Heure"]').value;
     const nombrePersonnes = document.querySelector('input[placeholder="Nombre de personnes"]').value;
 
+    // Validation des champs
     if (!nom || !telephone || !email || !date || !time || !nombrePersonnes) {
         alert("Veuillez remplir tous les champs !");
         return;
@@ -15,8 +16,15 @@ async function submitForm(event) {
 
     const reservationData = { nom, telephone, email, date, time, nombrePersonnes };
 
+    // Désactiver le bouton de soumission et afficher un message de chargement
+    const submitButton = document.querySelector('button[type="submit"]');
+    submitButton.disabled = true;
+    const loadingMessage = document.createElement('p');
+    loadingMessage.textContent = "Envoi de votre réservation...";
+    document.body.appendChild(loadingMessage);
+
     try {
-        const response = await fetch('https://api-form-gj21.onrender.com/api/reservations', {
+        const response = await fetch('https://api-form-gj21.onrender.com/reservations', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(reservationData)
@@ -29,11 +37,17 @@ async function submitForm(event) {
 
         const responseData = await response.json();
         console.log('Réservation réussie:', responseData);
+        
+        // Réinitialiser le formulaire
         document.getElementById("formRestau").reset();
         alert("Réservation réussie !");
         
     } catch (error) {
         console.error('Erreur:', error);
-        alert("Une erreur s'est produite. Veuillez réessayer.");
+        alert("Une erreur s'est produite : " + error.message);
+    } finally {
+        // Réactiver le bouton de soumission et enlever le message de chargement
+        submitButton.disabled = false;
+        document.body.removeChild(loadingMessage);
     }
 }

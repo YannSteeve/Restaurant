@@ -29,7 +29,7 @@ async function submitForm(event) {
 
     try {
         
-        const response = await fetch('api-form-d7cu.vercel.app', {
+        const response = await fetch('https://api-form-gj21.onrender.com/reservations', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

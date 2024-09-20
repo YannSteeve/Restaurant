@@ -29,7 +29,7 @@ async function submitForm(event) {
 
     try {
         
-        const response = await fetch('https://api-form-gj21.onrender.com/reservations', {
+        const response = await fetch('https://api-form-gj21.onrender.com/api/reservations', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

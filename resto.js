@@ -28,8 +28,8 @@ async function submitForm(event) {
     };
 
     try {
-        // Envoie les données à l'API
-        const response = await fetch('mysql-prince-junior.alwaysdata.net/api/reservations', {
+        
+        const response = await fetch('api-form-d7cu.vercel.app', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -37,7 +37,7 @@ async function submitForm(event) {
             body: JSON.stringify(reservationData)
         });
 
-        // Vérifie si la réponse est réussie
+        
         if (!response.ok) {
             throw new Error('Erreur lors de la soumission de la réservation');
         }
@@ -45,7 +45,7 @@ async function submitForm(event) {
         const responseData = await response.json();
         console.log('Réservation réussie:', responseData);
 
-        // Réinitialise le formulaire après soumission
+        
         document.getElementById("formRestau").reset();
         alert("Réservation réussie !");
         

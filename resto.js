@@ -24,7 +24,7 @@ async function submitForm(event) {
     document.body.appendChild(loadingMessage);
 
     try {
-        const response = await fetch('https://api-form-gj21.onrender.com/reservations', {
+        const response = await fetch('https://api-form-gj21.onrender.com/api/reservations', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(reservationData)

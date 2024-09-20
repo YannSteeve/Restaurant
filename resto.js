@@ -8,7 +8,7 @@ async function submitForm(event) {
     const time = document.querySelector('input[placeholder="Heure"]').value;
     const nombrePersonnes = document.querySelector('input[placeholder="Nombre de personnes"]').value;
 
-    // Validation des champs
+    
     if (!nom || !telephone || !email || !date || !time || !nombrePersonnes) {
         alert("Veuillez remplir tous les champs !");
         return;
@@ -16,7 +16,7 @@ async function submitForm(event) {
 
     const reservationData = { nom, telephone, email, date, time, nombrePersonnes };
 
-    // Désactiver le bouton de soumission et afficher un message de chargement
+    
     const submitButton = document.querySelector('button[type="submit"]');
     submitButton.disabled = true;
     const loadingMessage = document.createElement('p');
@@ -38,7 +38,7 @@ async function submitForm(event) {
         const responseData = await response.json();
         console.log('Réservation réussie:', responseData);
         
-        // Réinitialiser le formulaire
+        
         document.getElementById("formRestau").reset();
         alert("Réservation réussie !");
         
@@ -46,7 +46,7 @@ async function submitForm(event) {
         console.error('Erreur:', error);
         alert("Une erreur s'est produite : " + error.message);
     } finally {
-        // Réactiver le bouton de soumission et enlever le message de chargement
+        
         submitButton.disabled = false;
         document.body.removeChild(loadingMessage);
     }
